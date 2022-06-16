@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React ,{ useState } from "react";
 import { columnsFromBackend } from "./data/data.js"
 import DndContext from "./component/dndcontext"
 
@@ -42,10 +42,14 @@ const onDragEnd = (result, columns, setColumns) => {
 function App() {
   const [columns, setColumns] = useState(columnsFromBackend);
 
+
   return (
-    <div style={{ display: "flex", justifyContent: "center", alignItems: 'center', height: "80vh" }}>
-      <DndContext onDragEnd={onDragEnd} columns={columns} setColumns={setColumns} />
-    </div>
+
+          <div style={{ display: "flex", justifyContent: "center", alignItems: 'center', height: "90vh" }}>
+            <DndContext onDragEnd={onDragEnd} columns={columns} setColumns={setColumns} />
+          </div>
+
+
   );
 }
 

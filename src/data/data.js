@@ -10,7 +10,7 @@ import { v4 as uuidv4 } from 'uuid';
   
  export const columnsFromBackend = {
   "To do": {
-      name: "To do",
+      name: "Todos",
       items: itemsFromBackend
     },
     "In Progress": {
@@ -18,7 +18,7 @@ import { v4 as uuidv4 } from 'uuid';
       items: []
     },
     "Done": {
-      name: "Done",
+      name: "Completed",
       items: []
     }
   };

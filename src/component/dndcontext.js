@@ -104,7 +104,8 @@ const DndContext = ({ onDragEnd, columns, setColumns, }) => {
                                                                             hoverable
                                                                             style={{
                                                                                 marginTop: "7px",
-                                                                                background: "#90b562"
+                                                                                background: "#90b562",
+                                                                                userSelect:"none"
                                                                             }}
                                                                         >
                                                                             {item.content}
