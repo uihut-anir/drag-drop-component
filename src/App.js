@@ -30,7 +30,6 @@ const columnsFromBackend = {
 };
 
 const onDragEnd = (result, columns, setColumns) => {
-  console.log("hai")
   if (!result.destination) return;
   const { source, destination } = result;
 
