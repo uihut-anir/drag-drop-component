@@ -1,10 +1,13 @@
 import { useState } from "react";
+import { v4 as uuidv4 } from 'uuid';
 import { columnsFromBackend } from "./data/data.js"
 import DndContext from "./component/dndcontext"
 
 
-const addTodo = () => {
-  console.log("adding todos")
+const addTodo = (content) => {
+columnsFromBackend["To do"].items.push(
+    { id: uuidv4(), content }
+  ) 
 }
 
 

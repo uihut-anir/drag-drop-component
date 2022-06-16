@@ -1,6 +1,6 @@
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 import 'antd/dist/antd.css';
-import { Button , Modal} from 'antd';
+import { Button, Modal } from 'antd';
 import { useState } from 'react';
 import { Card } from 'antd';
 
@@ -8,31 +8,41 @@ import { Card } from 'antd';
 const DndContext = ({ onDragEnd, columns, setColumns, addTodo }) => {
     const [size, setSize] = useState('large');
     const [visible, setVisible] = useState(false);
+    const [content, setContent] = useState("")
+
+    const onSubmit = () => {
+        setVisible(false);
+        console.log(content)
+        addTodo(content)
+        setContent("")
+    }
+    
     return (
         <DragDropContext
             onDragEnd={result => onDragEnd(result, columns, setColumns)}
             style={{ position: "relative" }}
         >
             <div style={{ position: "absolute", top: "20px" }}>
-                <Button type="primary" onClick={()=>setVisible(true)} size={size}>
+                <Button type="primary" onClick={() => setVisible(true)} size={size}>
                     Create Todo
                 </Button>
             </div>
             <Modal
                 title="create your todo now!!"
                 centered
+                okText={"Create Todo"}
                 visible={visible}
-                onOk={() => setVisible(false)}
+                onOk={onSubmit}
                 onCancel={() => setVisible(false)}
                 width={900}
-                
+
             >
-                <textarea style={{
-                    width:"100%",
-                    height:"100px",
-                    fontSize:"18px",
-          
-                }}/>
+                <textarea value={content} onChange={(e) => setContent(e.target.value)} style={{
+                    width: "100%",
+                    height: "100px",
+                    fontSize: "18px",
+
+                }} />
             </Modal>
 
             {Object.entries(columns).map(([columnId, column], index) => {

@@ -1,7 +1,7 @@
 import { v4 as uuidv4 } from 'uuid';
 
-const itemsFromBackend = [
-    { id: uuidv4(), content: "First task" },
+export const itemsFromBackend = [
+    { id: uuidv4(), content: "First tafrgsdfhgsdfghd dsfg sdfgh sdh sfdfd ghsrgh sk" },
     { id: uuidv4(), content: "Second task" },
     { id: uuidv4(), content: "Third task" },
     { id: uuidv4(), content: "Fourth task" },
@@ -9,15 +9,15 @@ const itemsFromBackend = [
   ];
   
  export const columnsFromBackend = {
-    [uuidv4()]: {
+  "To do": {
       name: "To do",
       items:itemsFromBackend
     },
-    [uuidv4()]: {
+    "In Progress": {
       name: "In Progress",
       items: []
     },
-    [uuidv4()]: {
+    "Done": {
       name: "Done",
       items: []
     }
