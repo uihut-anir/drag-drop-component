@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { Card } from 'antd';
 
 
-const DndContext = ({ onDragEnd, columns, setColumns, addTodo }) => {
+const DndContext = ({ onDragEnd, columns, setColumns, }) => {
     const [size, setSize] = useState('large');
     const [visible, setVisible] = useState(false);
     const [content, setContent] = useState("")
@@ -13,7 +13,7 @@ const DndContext = ({ onDragEnd, columns, setColumns, addTodo }) => {
     const onSubmit = () => {
         setVisible(false);
         console.log(content)
-        addTodo(content)
+    (content)
         setContent("")
     }
     
@@ -22,19 +22,20 @@ const DndContext = ({ onDragEnd, columns, setColumns, addTodo }) => {
             onDragEnd={result => onDragEnd(result, columns, setColumns)}
             style={{ position: "relative" }}
         >
-            <div style={{ position: "absolute", top: "20px" }}>
+            <div style={{ position: "absolute", top: "10px"}}>
                 <Button type="primary" onClick={() => setVisible(true)} size={size}>
                     Create Todo
                 </Button>
             </div>
             <Modal
-                title="create your todo now!!"
+                title="Creating todo function is on progress....visit later!!"
                 centered
                 okText={"Create Todo"}
                 visible={visible}
                 onOk={onSubmit}
                 onCancel={() => setVisible(false)}
                 width={900}
+               
 
             >
                 <textarea value={content} onChange={(e) => setContent(e.target.value)} style={{
@@ -47,21 +48,23 @@ const DndContext = ({ onDragEnd, columns, setColumns, addTodo }) => {
 
             {Object.entries(columns).map(([columnId, column], index) => {
                 return (
-                    <>
-                        <div
+                    <div key={index} style={{ background:"white", marginLeft:"20px" ,}}>
+                        <Card
+                            hoverable
                             style={{
                                 display: "flex",
                                 flexDirection: "column",
-                                alignItems: "center"
+                                alignItems: "center",
+                               
                             }}
                             key={columnId}
-                        >
+                            >
 
                             <h2>{column.name}</h2>
                             <div style={{ margin: 8 }}>
 
 
-                                <Droppable droppableId={columnId} key={columnId}>
+                                <Droppable  droppableId={columnId} key={columnId}>
                                     {(provided, snapshot) => {
                                         return (
                                             <div
@@ -71,8 +74,8 @@ const DndContext = ({ onDragEnd, columns, setColumns, addTodo }) => {
                                                 isdragging={snapshot.isDragging}
                                                 style={{
                                                     background: snapshot.isDraggingOver
-                                                        ? "lightblue"
-                                                        : "lightgrey",
+                                                        ? "white"
+                                                        : "white",
                                                     padding: 4,
                                                     width: 250,
                                                     minHeight: 500
@@ -84,6 +87,7 @@ const DndContext = ({ onDragEnd, columns, setColumns, addTodo }) => {
                                                             key={item.id}
                                                             draggableId={item.id}
                                                             index={index}
+                                                      
                                                         >
                                                             {(provided, snapshot) => {
                                                                 return (
@@ -118,8 +122,8 @@ const DndContext = ({ onDragEnd, columns, setColumns, addTodo }) => {
                                     }}
                                 </Droppable>
                             </div>
-                        </div>
-                    </>
+                        </Card>
+                    </div>
 
                 );
             })}

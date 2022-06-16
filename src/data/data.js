@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from 'uuid';
 
-export const itemsFromBackend = [
+ const itemsFromBackend = [
     { id: uuidv4(), content: "First tafrgsdfhgsdfghd dsfg sdfgh sdh sfdfd ghsrgh sk" },
     { id: uuidv4(), content: "Second task" },
     { id: uuidv4(), content: "Third task" },
@@ -11,7 +11,7 @@ export const itemsFromBackend = [
  export const columnsFromBackend = {
   "To do": {
       name: "To do",
-      items:itemsFromBackend
+      items: itemsFromBackend
     },
     "In Progress": {
       name: "In Progress",
