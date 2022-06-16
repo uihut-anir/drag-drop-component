@@ -1,24 +1,39 @@
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
-import { DownloadOutlined } from '@ant-design/icons';
 import 'antd/dist/antd.css';
-import { Button } from 'antd';
+import { Button , Modal} from 'antd';
 import { useState } from 'react';
 import { Card } from 'antd';
 
 
 const DndContext = ({ onDragEnd, columns, setColumns, addTodo }) => {
     const [size, setSize] = useState('large');
-
+    const [visible, setVisible] = useState(false);
     return (
         <DragDropContext
             onDragEnd={result => onDragEnd(result, columns, setColumns)}
             style={{ position: "relative" }}
         >
             <div style={{ position: "absolute", top: "20px" }}>
-                <Button type="primary" size={size}>
+                <Button type="primary" onClick={()=>setVisible(true)} size={size}>
                     Create Todo
                 </Button>
             </div>
+            <Modal
+                title="create your todo now!!"
+                centered
+                visible={visible}
+                onOk={() => setVisible(false)}
+                onCancel={() => setVisible(false)}
+                width={900}
+                
+            >
+                <textarea style={{
+                    width:"100%",
+                    height:"100px",
+                    fontSize:"18px",
+          
+                }}/>
+            </Modal>
 
             {Object.entries(columns).map(([columnId, column], index) => {
                 return (

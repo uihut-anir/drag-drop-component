@@ -4,7 +4,7 @@ import DndContext from "./component/dndcontext"
 
 
 const addTodo = () => {
-  
+  console.log("adding todos")
 }
 
 

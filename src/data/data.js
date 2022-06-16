@@ -10,12 +10,8 @@ const itemsFromBackend = [
   
  export const columnsFromBackend = {
     [uuidv4()]: {
-      name: "Requested",
-      items: itemsFromBackend
-    },
-    [uuidv4()]: {
       name: "To do",
-      items: []
+      items:itemsFromBackend
     },
     [uuidv4()]: {
       name: "In Progress",
