@@ -1,11 +1,6 @@
 import { useState } from "react";
-// import { v4 as uuidv4 } from 'uuid';
 import { columnsFromBackend } from "./data/data.js"
 import DndContext from "./component/dndcontext"
-
-
-
-
 
 const onDragEnd = (result, columns, setColumns) => {
   if (!result.destination) return;
@@ -44,27 +39,11 @@ const onDragEnd = (result, columns, setColumns) => {
   }
 };
 
-
-
-
-
-
 function App() {
   const [columns, setColumns] = useState(columnsFromBackend);
 
-  // const addTodo = (content) => {
-  //   setColumns((prev, next) => {
-
-  //     return prev["To do"]?.items?.push(
-  //       { id: uuidv4(), content }
-  //     )
-
-  //   })
-  // }
-
   return (
     <div style={{ display: "flex", justifyContent: "center", alignItems: 'center', height: "80vh" }}>
-
       <DndContext onDragEnd={onDragEnd} columns={columns} setColumns={setColumns} />
     </div>
   );
