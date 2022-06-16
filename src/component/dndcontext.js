@@ -95,17 +95,20 @@ const DndContext = ({ onDragEnd, columns, setColumns, }) => {
                                                                         ref={provided.innerRef}
                                                                         {...provided.draggableProps}
                                                                         {...provided.dragHandleProps}
-
-
-                                                                        {...provided.draggableProps.style}
-
+                                                                         {...provided.draggableProps.style}                                       
                                                                     >
                                                                         <Card
                                                                             hoverable
                                                                             style={{
                                                                                 marginTop: "7px",
                                                                                 background: "#90b562",
-                                                                                userSelect:"none"
+                                                                                userSelect:"none",
+                                                                                backgroundColor: snapshot.isDragging
+                                                                                ? "#588c5a"
+                                                                                : "#5ebf61",
+                                                                                color: snapshot.isDragging
+                                                                                ? "white"
+                                                                                : "black"
                                                                             }}
                                                                         >
                                                                             {item.content}
@@ -117,7 +120,7 @@ const DndContext = ({ onDragEnd, columns, setColumns, }) => {
                                                         </Draggable>
                                                     );
                                                 })}
-                                                {provided.placeholder}
+                                       
                                             </div>
                                         );
                                     }}
