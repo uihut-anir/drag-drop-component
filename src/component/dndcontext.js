@@ -6,14 +6,12 @@ import { Card } from 'antd';
 
 
 const DndContext = ({ onDragEnd, columns, setColumns, }) => {
-    const [size, setSize] = useState('large');
+
     const [visible, setVisible] = useState(false);
     const [content, setContent] = useState("")
 
     const onSubmit = () => {
         setVisible(false);
-        console.log(content)
-    (content)
         setContent("")
     }
     
@@ -23,7 +21,7 @@ const DndContext = ({ onDragEnd, columns, setColumns, }) => {
             style={{ position: "relative" }}
         >
             <div style={{ position: "absolute", top: "10px"}}>
-                <Button type="primary" onClick={() => setVisible(true)} size={size}>
+                <Button type="primary" onClick={() => setVisible(true)} size={"large"}>
                     Create Todo
                 </Button>
             </div>
